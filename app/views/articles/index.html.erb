@@ -1,0 +1,34 @@
+<h1>Articles</h1>
+
+<%# <ul> %>
+    <%# <% @articles.each do |article| %> %>
+        <%# <li> %>
+            <%# <a href="/articles/<%= article.id %>"> %>
+                <%# <%= article.title %>    %>
+            <%# </a>     %>
+       <%# </li> %>
+    <%# <% end %> %>
+<%# </ul> %>
+
+<%# <ul>
+    <% @articles.each do |article| %>
+        <%# <li>
+            <a href="<%= article_path(article) %>">
+                <%# <%= article.title %>   
+            <%# </a>     %>
+        <%# </li> %> %> %>
+    <%# <% end %> %>
+<%# </ul> %> %>
+
+<ul>
+    <% @articles.each do |article| %>
+        <li>
+            <%= link_to article.title, article %>      
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "New Article", new_article_path %>
+
+<%# article_path helper returns "/articles/#{article.id}" when given an article %>
+<%# link_to helper renders a link with its first argument as the link's text and its second argument as the link's destination %>
