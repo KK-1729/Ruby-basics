@@ -2,18 +2,22 @@
 <%# form_with helper method instantiates a form builder, for methods such as label, text field etc. %>
  <div>
     <%= form.label :title %><br>
-    <%= form.text_field :body %>
+    <%= form.text_field :title %>
     <%# full_messages_for returns an array of error messages for a specific attribute %>
-    <% article.error.full_messages_for(:title).each do |message| %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
         <div><%= message %></div>
     <% end %>
  </div>
  <div>
     <%= form.label :body %><br>
-    <%= form.text_area- :body %>
-    <% article.error.full_messages_for(:body).each do |message| %>
+    <%= form.text_area :body %>
+    <% article.errors.full_messages_for(:body).each do |message| %>
         <div><%= message %></div>
     <% end %>
+ </div>
+ <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
  </div>
  <div>
     <%= form.submit %>
